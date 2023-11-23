@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<title> Image upload </title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #9e87c4, #6d516e);
+            /* color: ; */
+            font-family: 'LATO', sans-serif
+        }
+        
+        h2 {
+            margin: 50px 0
+        }
+        
+        .file-drop-area {
+            position: relative;
+            display: flow-root;
+            align-items: center;
+            max-width: 100%;
+            padding: 25px;
+            border: 2px dashed rgba(255, 255, 255, 0.6);
+            border-radius: 7px;
+            transition: .2s
+        }
+        
+        .choose-file-button {
+            flex-shrink: 0;
+            background-color: rgba(171, 90, 90, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            padding: 8px 15px;
+            margin-right: 10px;
+            font-size: 12px;
+            text-transform: uppercase
+        }
+        
+        .file-message {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+        
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            widows: 100%;
+            cursor: pointer;
+            opacity: 0
+        }
+        
+        #custom-button {
+            padding: 12px;
+            color: white;
+            background-color: #009578;
+            border: 1px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #custom-button::hover {
+            background-color: #00b28f;
+        }
+        
+        #custom-text {
+            font-family: sans-serif;
+            margin-left: 10px;
+        }
+        
+        
+        #uploadbtn {
+            padding: 12px;
+            background-color: #009578;
+            border-radius: 5px;
+          
+        }
+    </style>
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>        
+    <div class="container-fluid">
+    <div class="row" style="height:100vh;">
+    <div class="col-0">
+    </div>
+    
+    <div class="col-3">
+    <form class="my-5 center">
+    <!-- HTML5 Input Form Elements -->
+    <!-- <button id="custom-button" type="button" onclick="uploadFile()"> CHOOSE A FILE </button> -->
+    <!-- <input id="realfile" type="file" name="realupload" hidden="hidden" />
+    <button id="uploadbtn" type="button" onclick="uploadFile()"> UPLOAD & PREDICT </button>
+    <button id="custom-button" type="button" name="fileupload"> CHOOSE A FILE </button>
+    <span id="  custom-text">No file chosen, yet</span>
+
+    <table class++++++++++++++++++++++++++++++++++++++++++++++++++++++++++="table">
+        <thead></thead>
+        <tbody></tbody>
+    </table> -->
+    <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="1">Sodium Dodecyl sulfate</option>
+  <option value="2">Dyes</option>
+  <option value="3">Anionic Surfactants</option>
+  <option value="4">Metal. (Transition metals which forms color complex)</option>
+</select>
+<br><br>
+    <div class="container-fluid">
+        <div class="row" style="height:100vh;">
+            <div class="col-2">
+            </div>
+
+            <div class="col-10">
+                <form class="my-5 center">
+                    <!-- <input id="realfile" type="file" name="realupload" hidden="hidden" /> -->
+                    <div class="file-drop-area"> <span class="choose-file-button">Choose Files</span> <span class="file-message">or drag and drop files here</span> <input type="file" name="realupload" class="file-input" id="realfile" accept=".jfif,.jpg,.jpeg,.png,.gif"> </div>
+                    <br>
+                    <div id="divImageMediaPreview"> </div>
+                    <br>
+                    <!-- <button id="custom-button" type="button" onclick="uploadFile()"> CHOOSE A FILE </button> -->
+                    <!-- <button id="custom-button" type="button" name="fileupload"> CHOOSE A FILE </button> -->
+                    <button id="uploadbtn" type="button"  onclick="uploadFile()"> UPLOAD & PREDICT </button>
+                    <!-- <span id="custom-text">No file chosen, yet</span> -->
+
+                    <table class="table">
+                        <thead>
+
+
+                            
+                        </thead>
+                        <tbody
+                    ></tbody>
+                    </table>
+                    <p></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container-fluid">
+        <div class="row" style="height:100vh;">
+            <div class="col-1">
+            </div>
+
+            <div class="col-3">
+                <form class="my-5 center">
+                    <select class="custom-select">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <br><br>
+                    <div class="file-drop-area">
+                        <input id="fileupload" type="file" name="fileupload" />
+                        <button id="upload-button" onclick="uploadFile()"> Upload </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="container-fluid">
+        <div class="row" style="height:100vh;">
+            <div class="col-1">
+            </div>
+
+            <div class="col-3">
+                <form class="my-5 center">
+                    <select class="custom-select">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <br><br><br>
+                    <div class="file-drop-area">
+                        <span class="choose-file-button">Choose Files</span>
+                        <span class="file-message">or drag and drop files here</span>
+                        <input type="file" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif">
+                    </div>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Ajax JavaScript File Upload Logic -->
+    <script>
+        const realFileBtn = document.getElementById("realfile");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+        // customBtn.addEventListener("click", function() {
+        //     console.log("button clicked!")
+        //     realFileBtn.click();
+        // });
+
+        // realFileBtn.addEventListener("change", async function(fileupload) {
+        //     customTxt.innerHTML = realfile.files[0].name
+        // });
+
+        async function loadIntoTable(data) {
+            tableHead = document.querySelector("table").querySelector("thead");
+            tableBody = document.querySelector("table").querySelector("tbody");
+            // console.log(data.body);
+            const {
+                rgb,
+                cmyk,
+                prediction
+            } = await data.json();
+
+            // clearing the table
+            tableHead.innerHTML = "<tr></tr>";
+            tableBody = "";
+
+            // populate the headers
+            for (const char of "RGB") {
+                const rgbElement = document.createElement("th");
+                // const rgbValue = rgb["rgb".indexOf(char)]
+
+                rgbElement.textContent = char;
+                tableHead.querySelector("tr").appendChild(rgbElement);
+            }
+
+            for (const value of rgb) {
+                const rowElement = document.createElement("td");
+
+                rowElement.textContent = value;
+                tableHead.appendChild(rowElement);
+            }
+
+
+            for (const char of "CMYK") {
+                const cmykElement = document.createElement("th");
+                // const rgbValue = rgb["rgb".indexOf(char)]
+
+                cmykElement.textContent = char;
+                tableHead.querySelector("tr").appendChild(cmykElement);
+            }
+
+            for (const value of cmyk) {
+                const rowElement = document.createElement("td");
+
+                rowElement.textContent = value;
+                tableHead.appendChild(rowElement);
+            }
+
+            document.querySelector("p").innerHTML = "Concentration: " + prediction;
+
+        }
+
+        async function uploadFile() {
+            let formData = new FormData();
+            formData.append("file", realfile.files[0]);
+            console.log(realfile.files[0]);
+            const response = await fetch('http://127.0.0.1:5000/predict', {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Access-Control-Allow-Origin": true
+                }
+            });
+            console.log('The file has been uploaded successfully.');
+            // console.log(response)
+            loadIntoTable(response)
+        }
+    </script>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+<script type='text/Javascript'>$(document).on('change', '.file-input', function() {
+var filesCount = $(this)[0].files.length;
+
+var textbox = $(this).prev();
+
+if (filesCount === 1) {
+var fileName = $(this).val().split('\\').pop();
+textbox.text(fileName);
+} else {
+textbox.text(filesCount + ' files selected');
+}
+
+
+
+if (typeof (FileReader) != "undefined") {
+var dvPreview = $("#divImageMediaPreview");
+dvPreview.html("");
+$($(this)[0].files).each(function () {
+var file = $(this);
+var reader = new FileReader();
+reader.onload = function (e) {
+var img = $("<img />");
+img.attr("style", " width:100%; height:auto; padding: 10px");
+img.attr("src", e.target.result);
+dvPreview.append(img);
+}
+reader.readAsDataURL(file[0]);
+});
+} else {
+alert("This browser does not support HTML5 FileReader.");
+}
+
+
+});</script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="style1.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/39de285129.js" crossorigin="anonymous"></script>
+  <title>Login Form</title>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>login</h1>
+    <form action="">
+    <label for="username">username</label>
+    <input type="text" name="username" placeholder="Type Your Username" id="name" required maxlength="45">
+    <label for="password">password</label>
+    <input type="password" name="password" placeholder="Type Your Password" id="pass">
+     
+
+     <table>
+      <tr>
+       
+        <button type="button" onclick="myFunction()">Submit</button>
+      </tr>
+    </table>
+  </form>
+
+  
+
+  
+  
+  
+</body>
+<script>
+  
+
+function myFunction() {
+  
+let name = document.getElementById("name").value;
+  let pass = document.getElementById("pass").value;
+  console.log(name, pass)
+  if(name=="user" && pass=="abc123"){
+    console.log("sdghj");
+    window.location.replace("file:///C:/Users/Vardhman/Desktop/Capstone%20project/CSS%20Tutorial/upload-test.html");
+  }
+}
+</script>
+</html>
